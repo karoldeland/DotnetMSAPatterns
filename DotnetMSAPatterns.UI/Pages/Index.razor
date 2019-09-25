@@ -1,0 +1,42 @@
+﻿@page "/"
+
+@inject HttpClient Http
+
+<h1>Microservices Patterns in .NET</h1>
+
+<ul>
+    @foreach (string result in Results)
+    {
+        <li>@result</li>
+    }
+</ul>
+
+@code {
+
+    public List<string> Results { get; set; } = new List<string>() { "First", "Second" };
+
+    protected override void OnInitialized()
+    {
+        Task.Run(async () =>
+        {
+            while (true)
+            {
+                try
+                {
+                    Results.Add(await Http.GetStringAsync("https://localhost:44310/api/FlakyString"));
+                }
+                catch (Exception)
+                {
+                    Http.Dispose();
+                    Http = new HttpClient();
+                }
+                
+                await InvokeAsync(() => StateHasChanged());
+                await Task.Delay(500);
+
+                if (Results.Count > 10) break;
+            }
+        });
+    }
+
+}
