@@ -1,8 +1,8 @@
-﻿@page "/"
+﻿@page "/retry"
 
-@inject HttpClient Http
+@inject IHttpClientFactory httpClientFactory
 
-<h1>Base</h1>
+<h1>Retry</h1>
 
 <button @onclick="CallRemoteService">Launch</button>
 
@@ -23,19 +23,12 @@
 
         while (true)
         {
-            try
-            {
-                Results.Add(await Http.GetStringAsync("https://localhost:5001/api/FlakyString"));
-            }
-            catch (Exception)
-            {
-                Http.Dispose();
-                Http = new HttpClient();
-                Results.Add("Failure");
-            }
+            var client = httpClientFactory.CreateClient("Retry");
+
+            Results.Add(await client.GetStringAsync("FlakyString"));
 
             await RefreshUI();
-            
+
             await Task.Delay(500);
 
             if (Results.Count > 10) break;
@@ -43,5 +36,4 @@
     }
 
     private async Task RefreshUI() => await InvokeAsync(() => StateHasChanged());
-
 }

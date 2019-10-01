@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetMSAPatterns.API", "DotnetMSAPatterns.API.csproj", "{EB82C35B-D259-4E39-B782-0A05309B95CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetMSAPatterns.UI", "..\DotnetMSAPatterns.UI\DotnetMSAPatterns.UI.csproj", "{32B9BD50-404F-4D8F-9A6F-5BE6BECFA0F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetMSAPatterns.UI", "..\DotnetMSAPatterns.UI\DotnetMSAPatterns.UI.csproj", "{32B9BD50-404F-4D8F-9A6F-5BE6BECFA0F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
