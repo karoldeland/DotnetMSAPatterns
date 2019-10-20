@@ -1,0 +1,12 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: dotnetmsapatternsapi
+spec:
+  host: dotnetmsapatternsapi.istio-atqc19.svc.cluster.local
+  trafficPolicy:
+    outlierDetection:
+      consecutiveErrors: 1
+      interval: 1s
+      baseEjectionTime: 5s
+      maxEjectionPercent: 100

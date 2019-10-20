@@ -25,14 +25,20 @@
         {
             var client = httpClientFactory.CreateClient("Retry");
 
-            Results.Add(await client.GetStringAsync("FlakyString"));
-
-            await RefreshUI();
+            await Log(await client.GetStringAsync("FlakyString"));
 
             await Task.Delay(500);
 
             if (Results.Count > 10) break;
         }
+
+        await Log("Done");
+    }
+
+    private async Task Log(string result)
+    {
+        Results.Add(result);
+        await RefreshUI();
     }
 
     private async Task RefreshUI() => await InvokeAsync(() => StateHasChanged());

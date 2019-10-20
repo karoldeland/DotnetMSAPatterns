@@ -24,9 +24,9 @@ namespace DotnetMSAPatterns.API.Controllers
 
         private bool GetFailureFlag()
         {
-            var second = DateTime.Now.Second;
+            var randomValue= new Random(DateTime.Now.Millisecond).Next(2, 10);
 
-            return second % 2 > 0;
+            return randomValue % 2 > 0;
         }
     }
 }

@@ -30,25 +30,31 @@
 
             try
             {
-                Results.Add(await client.GetStringAsync("Busy"));
+                await Log(await client.GetStringAsync("Busy"));
             }
             catch (BrokenCircuitException)
             {
-                Results.Add("Circuit is open (broken). Should use cached value.");
+                await Log("Circuit is open (broken). Should use cached value.");
             }
-            catch (Exception)
-            { 
-                Results.Add("Call failed.");
+            catch (HttpRequestException ex)
+            {
+                await Log("Call failed.");
                 client.Dispose();
                 client = httpClientFactory.CreateClient("CircuitBreaker");
             }
 
-            await RefreshUI();
-
             await Task.Delay(500);
 
-            if (Results.Count > 20) break;
+            if (Results.Count > 30) break;
         }
+
+        await Log("Done");
+    }
+
+    private async Task Log(string result)
+    {
+        Results.Add(result);
+        await RefreshUI();
     }
 
     private async Task RefreshUI() => await InvokeAsync(() => StateHasChanged());

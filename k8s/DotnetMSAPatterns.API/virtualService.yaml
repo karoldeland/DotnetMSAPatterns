@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: dotnetmsapatternsapi
+spec:
+  hosts:
+  - dotnetmsapatternsapi
+  http:
+  - match:
+      - port: 80
+    route:
+    - destination:
+        host: dotnetmsapatternsapi
+        port:
+          number: 80
+    retries:
+        attempts: 10
+        perTryTimeout: 3s
+        retryOn: 5xx

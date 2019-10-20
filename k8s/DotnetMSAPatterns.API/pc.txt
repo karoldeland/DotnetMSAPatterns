@@ -1,0 +1,2131 @@
+[
+    {
+        "name": "80",
+        "virtualHosts": [
+            {
+                "name": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local:80",
+                "domains": [
+                    "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local",
+                    "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local:80",
+                    "dotnetmsapatternsapi",
+                    "dotnetmsapatternsapi:80",
+                    "dotnetmsapatternsapi.istio-atqc19.svc.cluster",
+                    "dotnetmsapatternsapi.istio-atqc19.svc.cluster:80",
+                    "dotnetmsapatternsapi.istio-atqc19.svc",
+                    "dotnetmsapatternsapi.istio-atqc19.svc:80",
+                    "dotnetmsapatternsapi.istio-atqc19",
+                    "dotnetmsapatternsapi.istio-atqc19:80",
+                    "10.0.123.191",
+                    "10.0.123.191:80"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|80||dotnetmsapatternsapi.istio-atqc19.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "5xx",
+                                "numRetries": 10,
+                                "perTryTimeout": "3s",
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3"
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "metadata": {
+                            "filterMetadata": {
+                                "istio": {
+                                    "config": "/apis/networking/v1alpha3/namespaces/istio-atqc19/virtual-service/dotnetmsapatternsapi"
+                                }
+                            }
+                        },
+                        "decorator": {
+                            "operation": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local:80/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "dotnetmsapatternsapi"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-atqc19"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-atqc19/services/dotnetmsapatternsapi"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "dotnetmsapatternsapi"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-atqc19"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-atqc19/services/dotnetmsapatternsapi"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-ingressgateway.istio-system.svc.cluster.local:80",
+                "domains": [
+                    "istio-ingressgateway.istio-system.svc.cluster.local",
+                    "istio-ingressgateway.istio-system.svc.cluster.local:80",
+                    "istio-ingressgateway.istio-system",
+                    "istio-ingressgateway.istio-system:80",
+                    "istio-ingressgateway.istio-system.svc.cluster",
+                    "istio-ingressgateway.istio-system.svc.cluster:80",
+                    "istio-ingressgateway.istio-system.svc",
+                    "istio-ingressgateway.istio-system.svc:80",
+                    "10.0.28.19",
+                    "10.0.28.19:80"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|80||istio-ingressgateway.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-ingressgateway.istio-system.svc.cluster.local:80/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-ingressgateway.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-ingressgateway"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-ingressgateway"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-ingressgateway.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-ingressgateway"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-ingressgateway"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "tracing.istio-system.svc.cluster.local:80",
+                "domains": [
+                    "tracing.istio-system.svc.cluster.local",
+                    "tracing.istio-system.svc.cluster.local:80",
+                    "tracing.istio-system",
+                    "tracing.istio-system:80",
+                    "tracing.istio-system.svc.cluster",
+                    "tracing.istio-system.svc.cluster:80",
+                    "tracing.istio-system.svc",
+                    "tracing.istio-system.svc:80",
+                    "10.0.113.56",
+                    "10.0.113.56:80"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|80||tracing.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "tracing.istio-system.svc.cluster.local:80/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "tracing.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "tracing"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/tracing"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "tracing.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "tracing"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/tracing"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "3000",
+        "virtualHosts": [
+            {
+                "name": "grafana.istio-system.svc.cluster.local:3000",
+                "domains": [
+                    "grafana.istio-system.svc.cluster.local",
+                    "grafana.istio-system.svc.cluster.local:3000",
+                    "grafana.istio-system",
+                    "grafana.istio-system:3000",
+                    "grafana.istio-system.svc.cluster",
+                    "grafana.istio-system.svc.cluster:3000",
+                    "grafana.istio-system.svc",
+                    "grafana.istio-system.svc:3000",
+                    "10.0.70.235",
+                    "10.0.70.235:3000"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|3000||grafana.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "grafana.istio-system.svc.cluster.local:3000/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "grafana.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "grafana"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/grafana"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "grafana.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "grafana"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/grafana"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "8000",
+        "virtualHosts": [
+            {
+                "name": "httpbin.istioretry.svc.cluster.local:8000",
+                "domains": [
+                    "httpbin.istioretry.svc.cluster.local",
+                    "httpbin.istioretry.svc.cluster.local:8000",
+                    "httpbin.istioretry",
+                    "httpbin.istioretry:8000",
+                    "httpbin.istioretry.svc.cluster",
+                    "httpbin.istioretry.svc.cluster:8000",
+                    "httpbin.istioretry.svc",
+                    "httpbin.istioretry.svc:8000",
+                    "10.0.228.101",
+                    "10.0.228.101:8000"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|8000||httpbin.istioretry.svc.cluster.local",
+                            "timeout": "8s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 1000,
+                                "perTryTimeout": "3s",
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "8s"
+                        },
+                        "metadata": {
+                            "filterMetadata": {
+                                "istio": {
+                                    "config": "/apis/networking/v1alpha3/namespaces/istioretry/virtual-service/httpbin"
+                                }
+                            }
+                        },
+                        "decorator": {
+                            "operation": "httpbin.istioretry.svc.cluster.local:8000/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "httpbin.istioretry.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "httpbin"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istioretry"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istioretry/services/httpbin"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "httpbin.istioretry.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "httpbin"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istioretry"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istioretry/services/httpbin"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "8060",
+        "virtualHosts": [
+            {
+                "name": "istio-citadel.istio-system.svc.cluster.local:8060",
+                "domains": [
+                    "istio-citadel.istio-system.svc.cluster.local",
+                    "istio-citadel.istio-system.svc.cluster.local:8060",
+                    "istio-citadel.istio-system",
+                    "istio-citadel.istio-system:8060",
+                    "istio-citadel.istio-system.svc.cluster",
+                    "istio-citadel.istio-system.svc.cluster:8060",
+                    "istio-citadel.istio-system.svc",
+                    "istio-citadel.istio-system.svc:8060",
+                    "10.0.236.22",
+                    "10.0.236.22:8060"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|8060||istio-citadel.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-citadel.istio-system.svc.cluster.local:8060/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-citadel.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-citadel"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-citadel"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-citadel.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-citadel"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-citadel"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "8080",
+        "virtualHosts": [
+            {
+                "name": "fortio.istioretry.svc.cluster.local:8080",
+                "domains": [
+                    "fortio.istioretry.svc.cluster.local",
+                    "fortio.istioretry.svc.cluster.local:8080",
+                    "fortio.istioretry",
+                    "fortio.istioretry:8080",
+                    "fortio.istioretry.svc.cluster",
+                    "fortio.istioretry.svc.cluster:8080",
+                    "fortio.istioretry.svc",
+                    "fortio.istioretry.svc:8080",
+                    "10.0.26.68",
+                    "10.0.26.68:8080"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|8080||fortio.istioretry.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "fortio.istioretry.svc.cluster.local:8080/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "fortio.istioretry.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "fortio"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istioretry"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istioretry/services/fortio"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "fortio.istioretry.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "fortio"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istioretry"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istioretry/services/fortio"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-pilot.istio-system.svc.cluster.local:8080",
+                "domains": [
+                    "istio-pilot.istio-system.svc.cluster.local",
+                    "istio-pilot.istio-system.svc.cluster.local:8080",
+                    "istio-pilot.istio-system",
+                    "istio-pilot.istio-system:8080",
+                    "istio-pilot.istio-system.svc.cluster",
+                    "istio-pilot.istio-system.svc.cluster:8080",
+                    "istio-pilot.istio-system.svc",
+                    "istio-pilot.istio-system.svc:8080",
+                    "10.0.246.58",
+                    "10.0.246.58:8080"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|8080||istio-pilot.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-pilot.istio-system.svc.cluster.local:8080/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-pilot.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-pilot"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-pilot"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-pilot.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-pilot"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-pilot"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "voting-analytics.voting.svc.cluster.local:8080",
+                "domains": [
+                    "voting-analytics.voting.svc.cluster.local",
+                    "voting-analytics.voting.svc.cluster.local:8080",
+                    "voting-analytics.voting",
+                    "voting-analytics.voting:8080",
+                    "voting-analytics.voting.svc.cluster",
+                    "voting-analytics.voting.svc.cluster:8080",
+                    "voting-analytics.voting.svc",
+                    "voting-analytics.voting.svc:8080",
+                    "10.0.186.184",
+                    "10.0.186.184:8080"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|8080||voting-analytics.voting.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "voting-analytics.voting.svc.cluster.local:8080/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "voting-analytics.voting.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "voting-analytics"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "voting"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://voting/services/voting-analytics"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "voting-analytics.voting.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "voting-analytics"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "voting"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://voting/services/voting-analytics"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "voting-app.voting.svc.cluster.local:8080",
+                "domains": [
+                    "voting-app.voting.svc.cluster.local",
+                    "voting-app.voting.svc.cluster.local:8080",
+                    "voting-app.voting",
+                    "voting-app.voting:8080",
+                    "voting-app.voting.svc.cluster",
+                    "voting-app.voting.svc.cluster:8080",
+                    "voting-app.voting.svc",
+                    "voting-app.voting.svc:8080",
+                    "10.0.191.73",
+                    "10.0.191.73:8080"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|8080||voting-app.voting.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "voting-app.voting.svc.cluster.local:8080/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "voting-app.voting.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "voting-app"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "voting"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://voting/services/voting-app"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "voting-app.voting.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "voting-app"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "voting"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://voting/services/voting-app"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "9090",
+        "virtualHosts": [
+            {
+                "name": "prometheus.istio-system.svc.cluster.local:9090",
+                "domains": [
+                    "prometheus.istio-system.svc.cluster.local",
+                    "prometheus.istio-system.svc.cluster.local:9090",
+                    "prometheus.istio-system",
+                    "prometheus.istio-system:9090",
+                    "prometheus.istio-system.svc.cluster",
+                    "prometheus.istio-system.svc.cluster:9090",
+                    "prometheus.istio-system.svc",
+                    "prometheus.istio-system.svc:9090",
+                    "10.0.149.212",
+                    "10.0.149.212:9090"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|9090||prometheus.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "prometheus.istio-system.svc.cluster.local:9090/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "prometheus.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "prometheus"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/prometheus"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "prometheus.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "prometheus"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/prometheus"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "9091",
+        "virtualHosts": [
+            {
+                "name": "istio-policy.istio-system.svc.cluster.local:9091",
+                "domains": [
+                    "istio-policy.istio-system.svc.cluster.local",
+                    "istio-policy.istio-system.svc.cluster.local:9091",
+                    "istio-policy.istio-system",
+                    "istio-policy.istio-system:9091",
+                    "istio-policy.istio-system.svc.cluster",
+                    "istio-policy.istio-system.svc.cluster:9091",
+                    "istio-policy.istio-system.svc",
+                    "istio-policy.istio-system.svc:9091",
+                    "10.0.178.32",
+                    "10.0.178.32:9091"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|9091||istio-policy.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-policy.istio-system.svc.cluster.local:9091/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-policy.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-policy"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-policy"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-policy.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-policy"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-policy"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-telemetry.istio-system.svc.cluster.local:9091",
+                "domains": [
+                    "istio-telemetry.istio-system.svc.cluster.local",
+                    "istio-telemetry.istio-system.svc.cluster.local:9091",
+                    "istio-telemetry.istio-system",
+                    "istio-telemetry.istio-system:9091",
+                    "istio-telemetry.istio-system.svc.cluster",
+                    "istio-telemetry.istio-system.svc.cluster:9091",
+                    "istio-telemetry.istio-system.svc",
+                    "istio-telemetry.istio-system.svc:9091",
+                    "10.0.6.70",
+                    "10.0.6.70:9091"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|9091||istio-telemetry.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-telemetry.istio-system.svc.cluster.local:9091/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-telemetry.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-telemetry"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-telemetry"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-telemetry.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-telemetry"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-telemetry"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "9411",
+        "virtualHosts": [
+            {
+                "name": "zipkin.istio-system.svc.cluster.local:9411",
+                "domains": [
+                    "zipkin.istio-system.svc.cluster.local",
+                    "zipkin.istio-system.svc.cluster.local:9411",
+                    "zipkin.istio-system",
+                    "zipkin.istio-system:9411",
+                    "zipkin.istio-system.svc.cluster",
+                    "zipkin.istio-system.svc.cluster:9411",
+                    "zipkin.istio-system.svc",
+                    "zipkin.istio-system.svc:9411",
+                    "10.0.130.108",
+                    "10.0.130.108:9411"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|9411||zipkin.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "zipkin.istio-system.svc.cluster.local:9411/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "zipkin.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "zipkin"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/zipkin"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "zipkin.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "zipkin"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/zipkin"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "9901",
+        "virtualHosts": [
+            {
+                "name": "istio-galley.istio-system.svc.cluster.local:9901",
+                "domains": [
+                    "istio-galley.istio-system.svc.cluster.local",
+                    "istio-galley.istio-system.svc.cluster.local:9901",
+                    "istio-galley.istio-system",
+                    "istio-galley.istio-system:9901",
+                    "istio-galley.istio-system.svc.cluster",
+                    "istio-galley.istio-system.svc.cluster:9901",
+                    "istio-galley.istio-system.svc",
+                    "istio-galley.istio-system.svc:9901",
+                    "10.0.80.176",
+                    "10.0.80.176:9901"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|9901||istio-galley.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-galley.istio-system.svc.cluster.local:9901/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-galley.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-galley"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-galley"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-galley.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-galley"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-galley"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "15004",
+        "virtualHosts": [
+            {
+                "name": "istio-policy.istio-system.svc.cluster.local:15004",
+                "domains": [
+                    "istio-policy.istio-system.svc.cluster.local",
+                    "istio-policy.istio-system.svc.cluster.local:15004",
+                    "istio-policy.istio-system",
+                    "istio-policy.istio-system:15004",
+                    "istio-policy.istio-system.svc.cluster",
+                    "istio-policy.istio-system.svc.cluster:15004",
+                    "istio-policy.istio-system.svc",
+                    "istio-policy.istio-system.svc:15004",
+                    "10.0.178.32",
+                    "10.0.178.32:15004"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15004||istio-policy.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-policy.istio-system.svc.cluster.local:15004/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-policy.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-policy"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-policy"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-policy.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-policy"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-policy"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-telemetry.istio-system.svc.cluster.local:15004",
+                "domains": [
+                    "istio-telemetry.istio-system.svc.cluster.local",
+                    "istio-telemetry.istio-system.svc.cluster.local:15004",
+                    "istio-telemetry.istio-system",
+                    "istio-telemetry.istio-system:15004",
+                    "istio-telemetry.istio-system.svc.cluster",
+                    "istio-telemetry.istio-system.svc.cluster:15004",
+                    "istio-telemetry.istio-system.svc",
+                    "istio-telemetry.istio-system.svc:15004",
+                    "10.0.6.70",
+                    "10.0.6.70:15004"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15004||istio-telemetry.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-telemetry.istio-system.svc.cluster.local:15004/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-telemetry.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-telemetry"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-telemetry"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-telemetry.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-telemetry"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-telemetry"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "15010",
+        "virtualHosts": [
+            {
+                "name": "istio-pilot.istio-system.svc.cluster.local:15010",
+                "domains": [
+                    "istio-pilot.istio-system.svc.cluster.local",
+                    "istio-pilot.istio-system.svc.cluster.local:15010",
+                    "istio-pilot.istio-system",
+                    "istio-pilot.istio-system:15010",
+                    "istio-pilot.istio-system.svc.cluster",
+                    "istio-pilot.istio-system.svc.cluster:15010",
+                    "istio-pilot.istio-system.svc",
+                    "istio-pilot.istio-system.svc:15010",
+                    "10.0.246.58",
+                    "10.0.246.58:15010"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15010||istio-pilot.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-pilot.istio-system.svc.cluster.local:15010/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-pilot.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-pilot"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-pilot"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-pilot.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-pilot"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-pilot"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "inbound|80|http|dotnetmsapatternsapi.istio-atqc19.svc.cluster.local",
+        "virtualHosts": [
+            {
+                "name": "inbound|http|80",
+                "domains": [
+                    "*"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "inbound|80|http|dotnetmsapatternsapi.istio-atqc19.svc.cluster.local",
+                            "timeout": "0s",
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local:80/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "dotnetmsapatternsapi"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-atqc19"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-atqc19/services/dotnetmsapatternsapi"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "inbound|80|http|dotnetmsapatternsapi.istio-atqc19.svc.cluster.local",
+        "virtualHosts": [
+            {
+                "name": "inbound|http|80",
+                "domains": [
+                    "*"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "inbound|80|http|dotnetmsapatternsapi.istio-atqc19.svc.cluster.local",
+                            "timeout": "0s",
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local:80/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "dotnetmsapatternsapi.istio-atqc19.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "dotnetmsapatternsapi"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-atqc19"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-atqc19/services/dotnetmsapatternsapi"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "15014",
+        "virtualHosts": [
+            {
+                "name": "istio-citadel.istio-system.svc.cluster.local:15014",
+                "domains": [
+                    "istio-citadel.istio-system.svc.cluster.local",
+                    "istio-citadel.istio-system.svc.cluster.local:15014",
+                    "istio-citadel.istio-system",
+                    "istio-citadel.istio-system:15014",
+                    "istio-citadel.istio-system.svc.cluster",
+                    "istio-citadel.istio-system.svc.cluster:15014",
+                    "istio-citadel.istio-system.svc",
+                    "istio-citadel.istio-system.svc:15014",
+                    "10.0.236.22",
+                    "10.0.236.22:15014"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15014||istio-citadel.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-citadel.istio-system.svc.cluster.local:15014/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-citadel.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-citadel"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-citadel"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-citadel.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-citadel"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-citadel"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-galley.istio-system.svc.cluster.local:15014",
+                "domains": [
+                    "istio-galley.istio-system.svc.cluster.local",
+                    "istio-galley.istio-system.svc.cluster.local:15014",
+                    "istio-galley.istio-system",
+                    "istio-galley.istio-system:15014",
+                    "istio-galley.istio-system.svc.cluster",
+                    "istio-galley.istio-system.svc.cluster:15014",
+                    "istio-galley.istio-system.svc",
+                    "istio-galley.istio-system.svc:15014",
+                    "10.0.80.176",
+                    "10.0.80.176:15014"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15014||istio-galley.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-galley.istio-system.svc.cluster.local:15014/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-galley.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-galley"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-galley"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-galley.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-galley"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-galley"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-pilot.istio-system.svc.cluster.local:15014",
+                "domains": [
+                    "istio-pilot.istio-system.svc.cluster.local",
+                    "istio-pilot.istio-system.svc.cluster.local:15014",
+                    "istio-pilot.istio-system",
+                    "istio-pilot.istio-system:15014",
+                    "istio-pilot.istio-system.svc.cluster",
+                    "istio-pilot.istio-system.svc.cluster:15014",
+                    "istio-pilot.istio-system.svc",
+                    "istio-pilot.istio-system.svc:15014",
+                    "10.0.246.58",
+                    "10.0.246.58:15014"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15014||istio-pilot.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-pilot.istio-system.svc.cluster.local:15014/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-pilot.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-pilot"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-pilot"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-pilot.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-pilot"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-pilot"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-policy.istio-system.svc.cluster.local:15014",
+                "domains": [
+                    "istio-policy.istio-system.svc.cluster.local",
+                    "istio-policy.istio-system.svc.cluster.local:15014",
+                    "istio-policy.istio-system",
+                    "istio-policy.istio-system:15014",
+                    "istio-policy.istio-system.svc.cluster",
+                    "istio-policy.istio-system.svc.cluster:15014",
+                    "istio-policy.istio-system.svc",
+                    "istio-policy.istio-system.svc:15014",
+                    "10.0.178.32",
+                    "10.0.178.32:15014"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15014||istio-policy.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-policy.istio-system.svc.cluster.local:15014/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-policy.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-policy"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-policy"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-policy.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-policy"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-policy"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "istio-telemetry.istio-system.svc.cluster.local:15014",
+                "domains": [
+                    "istio-telemetry.istio-system.svc.cluster.local",
+                    "istio-telemetry.istio-system.svc.cluster.local:15014",
+                    "istio-telemetry.istio-system",
+                    "istio-telemetry.istio-system:15014",
+                    "istio-telemetry.istio-system.svc.cluster",
+                    "istio-telemetry.istio-system.svc.cluster:15014",
+                    "istio-telemetry.istio-system.svc",
+                    "istio-telemetry.istio-system.svc:15014",
+                    "10.0.6.70",
+                    "10.0.6.70:15014"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|15014||istio-telemetry.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "istio-telemetry.istio-system.svc.cluster.local:15014/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-telemetry.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-telemetry"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-telemetry"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "istio-telemetry.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "istio-telemetry"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/istio-telemetry"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "name": "20001",
+        "virtualHosts": [
+            {
+                "name": "kiali.istio-system.svc.cluster.local:20001",
+                "domains": [
+                    "kiali.istio-system.svc.cluster.local",
+                    "kiali.istio-system.svc.cluster.local:20001",
+                    "kiali.istio-system",
+                    "kiali.istio-system:20001",
+                    "kiali.istio-system.svc.cluster",
+                    "kiali.istio-system.svc.cluster:20001",
+                    "kiali.istio-system.svc",
+                    "kiali.istio-system.svc:20001",
+                    "10.0.169.159",
+                    "10.0.169.159:20001"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/"
+                        },
+                        "route": {
+                            "cluster": "outbound|20001||kiali.istio-system.svc.cluster.local",
+                            "timeout": "0s",
+                            "retryPolicy": {
+                                "retryOn": "connect-failure,refused-stream,unavailable,cancelled,resource-exhausted,retriable-status-codes",
+                                "numRetries": 2,
+                                "retryHostPredicate": [
+                                    {
+                                        "name": "envoy.retry_host_predicates.previous_hosts"
+                                    }
+                                ],
+                                "hostSelectionRetryMaxAttempts": "3",
+                                "retriableStatusCodes": [
+                                    503
+                                ]
+                            },
+                            "maxGrpcTimeout": "0s"
+                        },
+                        "decorator": {
+                            "operation": "kiali.istio-system.svc.cluster.local:20001/*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "disable_check_calls": true,
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "kiali.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "kiali"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/kiali"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service.host": {
+                                            "string_value": "kiali.istio-system.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "kiali"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "istio-system"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://istio-system/services/kiali"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    },
+    {
+        "virtualHosts": [
+            {
+                "name": "backend",
+                "domains": [
+                    "*"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/stats/prometheus"
+                        },
+                        "route": {
+                            "cluster": "prometheus_stats"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

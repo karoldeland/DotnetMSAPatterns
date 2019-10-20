@@ -20,8 +20,10 @@ namespace DotnetMSAPatterns.UI
             .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
             {
                 TimeSpan.FromSeconds(1),
-                TimeSpan.FromSeconds(5),
-                TimeSpan.FromSeconds(10)
+                TimeSpan.FromSeconds(1),
+                TimeSpan.FromSeconds(1),
+                TimeSpan.FromSeconds(3),
+                TimeSpan.FromSeconds(5)
             }));
 
 
@@ -32,6 +34,24 @@ namespace DotnetMSAPatterns.UI
             .ConfigurePrimaryHttpMessageHandler<WebAssemblyHttpMessageHandler>()
             .AddTransientHttpErrorPolicy(
                 builder => builder.CircuitBreakerAsync(2, TimeSpan.FromSeconds(5)));
+
+
+
+
+
+            services.AddHttpClient("RetryIstio", client =>
+            {
+                client.BaseAddress = new Uri("http://52.186.13.229/api/");
+            })
+            .ConfigurePrimaryHttpMessageHandler<WebAssemblyHttpMessageHandler>();
+
+
+
+            services.AddHttpClient("CircuitBreakerIstio", client =>
+            {
+                client.BaseAddress = new Uri("http://52.186.13.229/api/");
+            })
+            .ConfigurePrimaryHttpMessageHandler<WebAssemblyHttpMessageHandler>();
         }
 
         public void Configure(IComponentsApplicationBuilder app)

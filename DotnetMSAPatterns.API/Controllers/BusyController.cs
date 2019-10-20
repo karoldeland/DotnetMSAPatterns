@@ -17,7 +17,7 @@ namespace DotnetMSAPatterns.API.Controllers
             bool mustFail = GetFailureFlag();
 
             if (mustFail)
-                return StatusCode(500, "Fail");
+                return StatusCode(504, "Fail");
 
             return Ok("Success");
         }

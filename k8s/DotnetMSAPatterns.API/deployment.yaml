@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnetmsapatternsapi
+spec:
+  selector:
+    matchLabels:
+      app: dotnetmsapatternsapi
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dotnetmsapatternsapi
+    spec:
+      containers:
+      - name: dotnetmsapatternsapi
+        image: karoldeland/dotnetmsapatternsapi:1.2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

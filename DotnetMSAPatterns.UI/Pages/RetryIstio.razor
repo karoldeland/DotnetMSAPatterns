@@ -1,0 +1,41 @@
+﻿@page "/retryIstio"
+
+@inject IHttpClientFactory httpClientFactory
+
+<h1>Retry</h1>
+
+<button @onclick="CallRemoteService">Launch</button>
+
+<ul>
+    @foreach (string result in Results)
+    {
+        <li>@result</li>
+    }
+</ul>
+
+@code {
+
+    public List<string> Results { get; set; } = new List<string>();
+
+    private async void CallRemoteService()
+    {
+        Results.Clear();
+
+        while (true)
+        {
+            var client = httpClientFactory.CreateClient("RetryIstio");
+
+            Results.Add(await client.GetStringAsync("FlakyString"));
+
+            await RefreshUI();
+
+            await Task.Delay(500);
+
+            if (Results.Count > 10) break;
+        }
+        
+        Results.Add("Done");
+    }
+
+    private async Task RefreshUI() => await InvokeAsync(() => StateHasChanged());
+}

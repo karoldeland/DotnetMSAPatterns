@@ -1,0 +1,64 @@
+﻿@page "/circuitIstio"
+
+@inject IHttpClientFactory httpClientFactory
+
+<h1>Circuit Breaker (Istio)</h1>
+
+<button @onclick="CallRemoteService">Launch</button>
+
+<ul>
+    @foreach (string result in Results)
+    {
+        <li>@result</li>
+    }
+</ul>
+
+@code {
+
+    public List<string>
+    Results { get; set; } = new List<string>();
+
+    private async void CallRemoteService()
+    {
+        Results.Clear();
+
+        while (true)
+        {
+            var client = GetHttpClient();
+
+            var response = await client.GetAsync("Busy");
+
+            if (response.IsSuccessStatusCode)
+            {
+                Results.Add(await response.Content.ReadAsStringAsync());
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout) // 504
+            {
+                Results.Add("Call failed.");
+                client.Dispose();
+                client = GetHttpClient();
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable) // 503
+            {
+                Results.Add("Circuit is open (broken). Should use cached value.");
+            }
+
+            await RefreshUI();
+
+            await Task.Delay(500);
+
+            if (Results.Count > 30) break;
+        }
+
+        
+        Results.Add("Done");
+    }
+
+    private HttpClient GetHttpClient()
+    {
+        return httpClientFactory.CreateClient("CircuitBreakerIstio");
+    }
+
+
+    private async Task RefreshUI() => await InvokeAsync(() => StateHasChanged());
+}

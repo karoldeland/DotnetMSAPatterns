@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetMSAPatterns.API", "DotnetMSAPatterns.API.csproj", "{EB82C35B-D259-4E39-B782-0A05309B95CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetMSAPatterns.API", "DotnetMSAPatterns.API\DotnetMSAPatterns.API.csproj", "{EB82C35B-D259-4E39-B782-0A05309B95CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetMSAPatterns.UI", "..\DotnetMSAPatterns.UI\DotnetMSAPatterns.UI.csproj", "{32B9BD50-404F-4D8F-9A6F-5BE6BECFA0F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetMSAPatterns.UI", "DotnetMSAPatterns.UI\DotnetMSAPatterns.UI.csproj", "{32B9BD50-404F-4D8F-9A6F-5BE6BECFA0F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetMSAPatterns.UI.ServerSide", "DotnetMSAPatterns.UI.ServerSide\DotnetMSAPatterns.UI.ServerSide.csproj", "{EFF4D82D-1F9E-440B-86BA-435B9FD7F65A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{32B9BD50-404F-4D8F-9A6F-5BE6BECFA0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32B9BD50-404F-4D8F-9A6F-5BE6BECFA0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32B9BD50-404F-4D8F-9A6F-5BE6BECFA0F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFF4D82D-1F9E-440B-86BA-435B9FD7F65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF4D82D-1F9E-440B-86BA-435B9FD7F65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFF4D82D-1F9E-440B-86BA-435B9FD7F65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF4D82D-1F9E-440B-86BA-435B9FD7F65A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
